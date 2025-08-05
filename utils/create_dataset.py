@@ -1,7 +1,8 @@
 import pandas as pd
 import random
+import numpy as np
 
-def gerar_dataset(n):
+def gerar_dataset(n, prob_nulo=0.1):
     cidades = ['São Paulo', 'Rio', 'Belo Horizonte', 'Salvador', 'Curitiba']
     produtos = ['arroz', 'feijao', 'oleo', 'cafe', 'acucar']
     generos = ['M', 'F']
@@ -23,8 +24,16 @@ def gerar_dataset(n):
         'id', 'idade', 'genero', 'renda_mensal', 'cidade',
         'produto_favorito', 'comprou_promo', 'frequencia_visitas', 'valor_total_gasto'
     ]
-    return pd.DataFrame(dados, columns=colunas)
 
-df = gerar_dataset(10000)
+    df = pd.DataFrame(dados, columns=colunas)
+
+    colunas_com_nulo = ['idade', 'genero', 'renda_mensal', 'produto_favorito']
+    for col in colunas_com_nulo:
+        mask = np.random.rand(n) < prob_nulo
+        df.loc[mask, col] = np.nan
+
+    return df
+
+df = gerar_dataset(10000, prob_nulo=0.1)
 df.to_csv("data/clientes_varejo.csv", index=False)
-print("Arquivo 'clientes_varejo.csv' gerado com sucesso!")
+print("Arquivo 'clientes_varejo.csv' gerado com sucesso com valores nulos!")

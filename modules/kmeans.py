@@ -2,6 +2,7 @@ import streamlit as st
 import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
+import pandas as pd
 
 def show_kmeans(df):
     st.subheader("Agrupamento com K-Means")
@@ -17,7 +18,12 @@ def show_kmeans(df):
             try:
                 dados_cluster = df[[col_x, col_y]].dropna()
                 modelo = KMeans(n_clusters=k, random_state=42)
-                df['cluster'] = modelo.fit_predict(dados_cluster)
+                clusters = modelo.fit_predict(dados_cluster)
+
+                df['cluster'] = pd.NA
+                df.loc[dados_cluster.index, 'cluster'] = clusters
+
+                df['cluster'] = df['cluster'].fillna("Não classificado")
 
                 fig, ax = plt.subplots()
                 sns.scatterplot(data=df, x=col_x, y=col_y, hue='cluster', palette='Set2', ax=ax)

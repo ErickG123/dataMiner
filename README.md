@@ -48,8 +48,8 @@ streamlit run app.py
 
 🛣️ Roadmap
 🔹 Versão 1.1 – Limpeza e visualização mais completa
-- [ ] Preenchimento de valores nulos com média/mediana/modo
-- [ ] Normalização e padronização (MinMa Scaler, StandardScaler)
+- [X] Preenchimento de valores nulos com média/mediana/moda
+- [X] Normalização e padronização (MinMax Scaler, StandardScaler)
 - [ ] Heatmap de correlação
 - [ ] Boxplot por variável categórica
 - [ ] Detecção de outliers (Z-Score ou IQR)
