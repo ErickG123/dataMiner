@@ -46,5 +46,43 @@ streamlit run app.py
 - mlxtend
 - streamlit-option-menu
 
+🛣️ Roadmap
+🔹 Versão 1.1 – Limpeza e visualização mais completa
+- [ ] Preenchimento de valores nulos com média/mediana/modo
+- [ ] Normalização e padronização (MinMa Scaler, StandardScaler)
+- [ ] Heatmap de correlação
+- [ ] Boxplot por variável categórica
+- [ ] Detecção de outliers (Z-Score ou IQR)
+🎯 Objetivo: permitir uma exploração e preparação mais profunda dos dados.
+
+🔹 Versão 1.2 – Novos algoritmos de mineração
+- [ ] Adicionar Random Forest
+- [ ] Adicionar Regressão Logística
+- [ ] Adicionar K-Nearest Neighbors
+- [ ] Avaliação de modelos: matriz de confusão, precisão, recall, F1
+🎯 Objetivo: ampliar o leque de modelos preditivos e métricas.
+
+🔹 Versão 1.3 – Qualidade de dados e diagnósticos
+- [ ] Identificação de colunas com baixa variância
+- [ ] Verificação de colunas com tipos mistos
+- [ ] Colunas duplicadas ou altamente correlacionadas
+- [ ] Verificador automático com "sugestões" de limpeza
+🎯 Objetivo: identificar problemas sutis que afetam a análise.
+
+🔹 Versão 1.4 – Funcionalidades interativas e utilitárias
+- [ ] Botão para baixar dataset processado
+- [ ] Exportar regras Apriori como CSV
+- [ ] Geração de relatório em PDF ou HTML (com gráficos e insights)
+- [ ] Carregamento de datasets padrão (Titanic, Iris, Market Basket)
+🎯 Objetivo: facilitar o uso educacional e a exportação de resultados.
+
+🔹 Versão 2.0 – Experiência orientada a ensino
+- [ ] “Modo Assistido”: passos guiados com explicações (ex: "Agora escolha um target")
+- [ ] Tooltips explicativos em widgets
+- [ ] Abas para comparar modelos (ex: Árvore vs. Random Forest)
+- [ ] Histórico de transformações no dataset
+- [ ] Interface multilíngue (ex: EN/PT)
+🎯 Objetivo: transformar o DataMiner em uma ferramenta de ensino acessível e didática.
+
 📘 Licença
-Distribuído sob a licença MIT. Veja LICENSE para mais informações.
+Distribuído sob a licença MIT. Veja o arquivo LICENSE para mais informações.
