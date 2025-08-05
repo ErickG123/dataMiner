@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from streamlit_option_menu import option_menu
 
 from modules import (
     visualizacao,
@@ -18,31 +19,39 @@ uploaded_file = st.file_uploader("📁 Envie um arquivo CSV", type=["csv"])
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
 
-    menu = st.sidebar.radio("Navegação", [
-        "Visualização Inicial",
-        "Tratamento de Dados",
-        "K-Means",
-        "Árvore de Decisão",
-        "Regras Apriori",
-        "Insights Automáticos"
-    ])
+    with st.sidebar:
+        selected = option_menu(
+            menu_title="Navegação",
+            options=[
+                "Visualização Inicial",
+                "Tratamento de Dados",
+                "K-Means",
+                "Árvore de Decisão",
+                "Regras Apriori",
+                "Insights Automáticos"
+            ],
+            icons=[
+                "table", "tools", "diagram-3", "tree", "link-45deg", "lightbulb"
+            ],
+            default_index=0
+        )
 
-    if menu == "Visualização Inicial":
+    if selected == "Visualização Inicial":
         visualizacao.show_visualizacao(df)
 
-    elif menu == "Tratamento de Dados":
+    elif selected == "Tratamento de Dados":
         tratamento.show_tratamento(df)
 
-    elif menu == "K-Means":
+    elif selected == "K-Means":
         kmeans.show_kmeans(df)
 
-    elif menu == "Árvore de Decisão":
+    elif selected == "Árvore de Decisão":
         arvore_decisao.show_arvore_decisao(df)
 
-    elif menu == "Regras Apriori":
+    elif selected == "Regras Apriori":
         regras_apriori.show_regras_apriori(df)
 
-    elif menu == "Insights Automáticos":
+    elif selected == "Insights Automáticos":
         insights.show_insights(df)
 
 else:
